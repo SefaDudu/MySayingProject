@@ -1,0 +1,44 @@
+﻿@model Book
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<br />
+<br />
+<br />
+
+
+@using (Html.BeginForm("Modify", "Book", FormMethod.Post, new { id = "BookForm" }))
+{
+
+    @Html.ValidationSummary()
+    @Html.AntiForgeryToken()
+
+
+    @Html.HiddenFor(model => model.ID)
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Name, " Name")
+        @Html.TextBoxFor(model => model.Name, new { @class = "form-control" })
+    </div>
+
+
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.PDF, "PDF")
+        @Html.TextBoxFor(model => model.PDF, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.WriterId, "WriterId")
+        @Html.TextBoxFor(model => model.WriterId, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.PublisherId, "PublisherId")
+        @Html.TextBoxFor(model => model.PublisherId, new { @class = "form-control" })
+    </div>
+
+    <input type="submit" class="btn btn-primary " value="Submit" />
+
+}
+

@@ -1,0 +1,158 @@
+﻿
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.80.0">
+    <title>Dashboard Template · Bootstrap v4.6</title>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" />
+    <link href="~/css/site.css" rel="stylesheet" />
+    <link href="~/css/dashboard.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <style>
+        .bd-placeholder-img {
+            font-size: 1.125rem;
+            text-anchor: middle;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+        @@media (min-width: 768px) {
+            .bd-placeholder-img-lg {
+                font-size: 3.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="nav__container active">
+            <a href="~/" class="nav__item @Html.IsActive("Home", "Index")">
+                <div class="nav__item-icon">
+                    <i class="fas fa-house-user "></i>
+                </div>
+                <div class="nav__item-name">Anasayfa</div>
+            </a>
+
+            <a href="~/Book" class="nav__item @Html.IsActive("Book", "Index")">
+                <div class="nav__item-icon">
+                    <ion-icon name="people-outline"></ion-icon>
+                </div>
+                <div class="nav__item-name">Kitaplar</div>
+            </a>
+            <a href="~/İdea" class="nav__item @Html.IsActive("İdea", "Index")">
+                <div class="nav__item-icon">
+                    <ion-icon name="people-outline"></ion-icon>
+                </div>
+                <div class="nav__item-name">Özlü Sözleriniz</div>
+            </a>
+            @if (User.Identity.IsAuthenticated)
+            {
+
+                <a href="~/Publisher" class="nav__item @Html.IsActive("Publisher", "Index")">
+                    <div class="nav__item-icon">
+                        <ion-icon name="newspaper-outline"></ion-icon>
+                    </div>
+                    <div class="nav__item-name">Yayıncılar</div>
+                </a>
+                <a href="~/Writer" class="nav__item @Html.IsActive("Writer", "Index")">
+                    <div class="nav__item-icon">
+                        <ion-icon name="log-out-outline"></ion-icon>
+                    </div>
+                    <div class="nav__item-name">Yazarlar</div>
+                </a>
+                <a href="~/Saying" class="nav__item @Html.IsActive("Saying", "Index")">
+                    <div class="nav__item-icon">
+                        <ion-icon name="people-outline"></ion-icon>
+                    </div>
+                    <div class="nav__item-name">Özlü Sözler</div>
+                </a>
+                <a href="~/Account/LogOut" class="nav__item">
+                    <div class="nav__item-icon">
+                        <ion-icon name="log-out-outline"></ion-icon>
+                    </div>
+                    <div class="nav__item-name">Çıkış</div>
+                </a>
+            }
+        </div>
+    </nav>
+
+
+
+
+    @*<div class="container-fluid">
+        <div class="row">
+            <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
+                <div class="sidebar-sticky pt-3">
+                    <ul class="nav flex-column">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="~/">
+                                <span data-feather="home"></span>
+                                AnaSayfa <span class="sr-only">(current)</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="~/Book">
+                                <span data-feather="file"></span>
+                                Book
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="~/Publisher">
+                                <span data-feather="shopping-cart"></span>
+                                Publisher
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="~/Writer">
+                                <span data-feather="users"></span>
+                                Writer
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="~/Saying">
+                                <span data-feather="bar-chart-2"></span>
+                                Saying
+                            </a>
+                        </li>
+
+                    </ul>
+
+                </div>
+            </nav>*@
+
+    <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
+        <div class="container">
+            <div class="row">
+               @RenderBody()
+                <div class="col-8">   </div>
+                <div class="col-4">   </div>
+            </div>
+        </div>
+    </main>
+
+    }
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.25/js/dataTables.bootstrap4.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <script src="~/js/site.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ionicons/5.5.2/esm/ionicons.min.js" integrity="sha512-Qmj2isWbbV6AA/CETFzUkRDK1laOfyLi2rhQF6VlGjA4J+Rf6UY8APqYBhWaE3yDK3RtxjByAs+VRxr5CREuLw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    @RenderSection("scripts", false)
+</body>
+</html>

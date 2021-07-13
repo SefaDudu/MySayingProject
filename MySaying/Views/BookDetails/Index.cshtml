@@ -1,0 +1,35 @@
+﻿@model BookDetailVM
+
+@{
+}
+
+Kitap Adı : @Model.Book.Name
+PDF :
+
+...
+
+
+
+Yorumlar :
+
+@if (Model.Comments.Any())
+{
+    <ul>
+        @foreach (var comment in Model.Comments)
+        {
+            <li>
+                Kullanıcı Adı : @comment.UserName <br />
+                Yorum : @comment.Comments
+            </li>
+        }
+    </ul>
+}
+
+<form action="/BookDetails/AddComment" method="post">
+    <input type="hidden" name="BookId" value="@Model.Book.ID" />
+    <input type="text" name="UserName" value="" />
+    <input type="text" name="Comments" value="" />
+    <button>Yorum Yap</button>
+</form>
+
+
